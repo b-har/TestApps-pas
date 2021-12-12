@@ -3,7 +3,7 @@ object frmMain: TfrmMain
   Top = 0
   BorderIcons = [biSystemMenu, biMinimize]
   BorderWidth = 16
-  Caption = 'UDP Test App'
+  Caption = 'UDPMon'
   ClientHeight = 423
   ClientWidth = 688
   Color = clBtnFace
@@ -22,7 +22,7 @@ object frmMain: TfrmMain
     Left = 0
     Top = 33
     Width = 688
-    Height = 390
+    Height = 349
     TabStop = False
     Align = alClient
     Color = clBtnFace
@@ -36,6 +36,7 @@ object frmMain: TfrmMain
     ScrollBars = ssVertical
     TabOrder = 0
     Visible = False
+    ExplicitHeight = 390
   end
   object panToolbar: TPanel
     Left = 0
@@ -66,5 +67,49 @@ object frmMain: TfrmMain
       Caption = 'UDP Client'
       OnClick = sbClientClick
     end
+  end
+  object panBottomBar: TPanel
+    Left = 0
+    Top = 382
+    Width = 688
+    Height = 41
+    Align = alBottom
+    BevelOuter = bvNone
+    Caption = ' '
+    TabOrder = 2
+    Visible = False
+    ExplicitLeft = 536
+    ExplicitTop = 256
+    ExplicitWidth = 185
+    object SpeedButton1: TSpeedButton
+      Left = 0
+      Top = 6
+      Width = 73
+      Height = 27
+      Caption = '&Clear'
+      OnClick = SpeedButton1Click
+    end
+    object SpeedButton2: TSpeedButton
+      Left = 79
+      Top = 6
+      Width = 73
+      Height = 27
+      Caption = '&Save'
+      OnClick = SpeedButton2Click
+    end
+    object labStatus: TLabel
+      Left = 166
+      Top = 13
+      Width = 12
+      Height = 13
+      Caption = '...'
+    end
+  end
+  object timClearStatus: TTimer
+    Enabled = False
+    Interval = 3000
+    OnTimer = timClearStatusTimer
+    Left = 552
+    Top = 248
   end
 end

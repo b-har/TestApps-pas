@@ -11,7 +11,7 @@ const
   DEFAULT_PORT = 3000;
   DEFAULT_IP   = DEF_LOCALHOST;
 
-  MAX_LOG_LINES = 100;
+  MAX_LOG_LINES = 1000;
 
   clOn: TColor = $00CC00;   // bright green
   clOff: TColor = $002200;  // dark green

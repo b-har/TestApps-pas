@@ -98,6 +98,7 @@ object frmUDPClient: TfrmUDPClient
     Top = 40
     Width = 121
     Height = 21
+    TabStop = False
     Color = clBtnFace
     EditLabel.Width = 53
     EditLabel.Height = 13
@@ -112,6 +113,7 @@ object frmUDPClient: TfrmUDPClient
     Top = 64
     Width = 121
     Height = 21
+    TabStop = False
     Color = clBtnFace
     EditLabel.Width = 53
     EditLabel.Height = 13
@@ -126,6 +128,7 @@ object frmUDPClient: TfrmUDPClient
     Top = 88
     Width = 121
     Height = 21
+    TabStop = False
     Color = clBtnFace
     EditLabel.Width = 53
     EditLabel.Height = 13
@@ -140,6 +143,7 @@ object frmUDPClient: TfrmUDPClient
     Top = 40
     Width = 81
     Height = 21
+    TabStop = False
     Color = clBtnFace
     EditLabel.Width = 24
     EditLabel.Height = 13
@@ -154,6 +158,7 @@ object frmUDPClient: TfrmUDPClient
     Top = 64
     Width = 81
     Height = 21
+    TabStop = False
     Color = clBtnFace
     EditLabel.Width = 24
     EditLabel.Height = 13
@@ -168,6 +173,7 @@ object frmUDPClient: TfrmUDPClient
     Top = 88
     Width = 81
     Height = 21
+    TabStop = False
     Color = clBtnFace
     EditLabel.Width = 24
     EditLabel.Height = 13
@@ -187,7 +193,7 @@ object frmUDPClient: TfrmUDPClient
     EditLabel.Caption = 'Test Data:'
     LabelPosition = lpLeft
     TabOrder = 6
-    Text = 'Test'
+    Text = 'Test1'
   end
   object edTest2: TLabeledEdit
     Left = 408
@@ -199,7 +205,7 @@ object frmUDPClient: TfrmUDPClient
     EditLabel.Caption = 'Test Data:'
     LabelPosition = lpLeft
     TabOrder = 7
-    Text = 'Test'
+    Text = 'Test2'
   end
   object edTest3: TLabeledEdit
     Left = 408
@@ -211,7 +217,7 @@ object frmUDPClient: TfrmUDPClient
     EditLabel.Caption = 'Test Data:'
     LabelPosition = lpLeft
     TabOrder = 8
-    Text = 'Test'
+    Text = 'Test3'
   end
   object cbContinuous: TCheckBox
     Left = 600

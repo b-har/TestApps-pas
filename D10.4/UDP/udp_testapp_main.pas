@@ -14,11 +14,19 @@ type
     panToolbar: TPanel;
     sbServer: TSpeedButton;
     sbClient: TSpeedButton;
+    panBottomBar: TPanel;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    labStatus: TLabel;
+    timClearStatus: TTimer;
     procedure sbServerClick(Sender: TObject);
     procedure sbClientClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure timClearStatusTimer(Sender: TObject);
   private
     { Private declarations }
     frmUDPClient: TfrmUDPClient;
@@ -103,7 +111,14 @@ end;
 
 procedure TfrmMain.FormShow(Sender: TObject);
 begin
+  labStatus.Caption := '';
   ActiveControl := nil;
+
+  try
+    ForceDirectories('C:\Temp\');
+  finally
+
+  end;
 end;
 
 
@@ -126,6 +141,8 @@ end;
 
 procedure TfrmMain.sbServerClick(Sender: TObject);
 begin
+  panToolbar.Visible := False; // not required here, but having it allows only one cli/srv click per launch
+
   if sbServer.Down then
   begin
     // speedbutton is up -- create and initialize the server frame/server
@@ -139,6 +156,7 @@ begin
       frmUDPServer.Parent := Self;
       sbClient.Visible := False;
       memLog.Visible := True;
+      panBottomBar.Visible := True;
     end;
 
   end else
@@ -158,8 +176,33 @@ begin
 end;
 
 
+procedure TfrmMain.SpeedButton1Click(Sender: TObject);
+begin
+  memLog.Lines.Clear;
+end;
+
+procedure TfrmMain.SpeedButton2Click(Sender: TObject);
+var
+  fn: String;
+begin
+  fn := 'c:\Temp\UDPMon-Log-' + FormatDateTime('yyyy-mm-dd-hh-nn-ss-zzz', Now) + '.log';
+  memLog.Lines.SaveToFile(fn);
+
+  labStatus.Caption := 'Saved to: ' + fn;
+  timClearStatus.Enabled := False;
+  timClearStatus.Enabled := True;
+end;
+
+procedure TfrmMain.timClearStatusTimer(Sender: TObject);
+begin
+  timClearStatus.Enabled := False;
+  labStatus.Caption := '';
+end;
+
 procedure TfrmMain.sbClientClick(Sender: TObject);
 begin
+  panToolbar.Visible := False; // not required here, but having it allows only one cli/srv click per launch
+
   if sbClient.Down then
   begin
     // speedbutton is up -- create and initialize the client frame/clients
