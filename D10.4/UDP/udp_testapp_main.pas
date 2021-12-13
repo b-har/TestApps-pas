@@ -10,7 +10,6 @@ uses
 
 type
   TfrmMain = class(TForm)
-    memLog: TMemo;
     panToolbar: TPanel;
     sbServer: TSpeedButton;
     sbClient: TSpeedButton;
@@ -19,6 +18,9 @@ type
     SpeedButton2: TSpeedButton;
     labStatus: TLabel;
     timClearStatus: TTimer;
+    timUpdateLog: TTimer;
+    memLog: TMemo;
+    labReceiving: TLabel;
     procedure sbServerClick(Sender: TObject);
     procedure sbClientClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -27,6 +29,7 @@ type
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
     procedure timClearStatusTimer(Sender: TObject);
+    procedure timUpdateLogTimer(Sender: TObject);
   private
     { Private declarations }
     frmUDPClient: TfrmUDPClient;
@@ -57,11 +60,14 @@ end;
 
 procedure TfrmMain.log(const event: String);
 begin
-  while memLog.Lines.Count>MAX_LOG_LINES do
-    memLog.Lines.Delete(0);
+  memLog.Visible := False;
+  timUpdateLog.Enabled := False; // stops the timer
 
   memLog.Lines.Add(event);
-  SendMessage(memLog.Handle, WM_VSCROLL, SB_BOTTOM, 0);
+  labReceiving.Caption := 'Receiving data...'+IntToStr(memLog.Lines.Count);
+  labReceiving.Update;
+
+  timUpdateLog.Enabled := True; // resets the timer
 end;
 
 
@@ -141,6 +147,7 @@ end;
 
 procedure TfrmMain.sbServerClick(Sender: TObject);
 begin
+  labReceiving.Visible := True;
   panToolbar.Visible := False; // not required here, but having it allows only one cli/srv click per launch
 
   if sbServer.Down then
@@ -197,6 +204,17 @@ procedure TfrmMain.timClearStatusTimer(Sender: TObject);
 begin
   timClearStatus.Enabled := False;
   labStatus.Caption := '';
+end;
+
+procedure TfrmMain.timUpdateLogTimer(Sender: TObject);
+begin
+  timUpdateLog.Enabled := False;
+
+  while memLog.Lines.Count>MAX_LOG_LINES do
+    memLog.Lines.Delete(0);
+
+  SendMessage(memLog.Handle, WM_VSCROLL, SB_BOTTOM, 0);
+  memLog.Visible := True;
 end;
 
 procedure TfrmMain.sbClientClick(Sender: TObject);

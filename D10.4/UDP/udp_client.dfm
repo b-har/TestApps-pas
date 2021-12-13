@@ -37,7 +37,7 @@ object frmUDPClient: TfrmUDPClient
     Top = 40
     Width = 49
     Height = 21
-    Caption = 'Send'
+    Caption = '&Send'
     OnClick = sbSendClick
   end
   object SpeedButton4: TSpeedButton
@@ -72,7 +72,7 @@ object frmUDPClient: TfrmUDPClient
     Top = 40
     Width = 73
     Height = 21
-    Caption = 'Send Ticks'
+    Caption = 'Send &Ticks'
     OnClick = sbSendClick
   end
   object sbSendTicks2: TSpeedButton

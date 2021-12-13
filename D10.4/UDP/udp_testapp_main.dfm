@@ -18,25 +18,13 @@ object frmMain: TfrmMain
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
-  object memLog: TMemo
-    Left = 0
-    Top = 33
-    Width = 688
-    Height = 349
-    TabStop = False
-    Align = alClient
-    Color = clBtnFace
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Courier New'
-    Font.Style = []
-    ParentFont = False
-    ReadOnly = True
-    ScrollBars = ssVertical
-    TabOrder = 0
+  object labReceiving: TLabel
+    Left = 14
+    Top = 237
+    Width = 72
+    Height = 13
+    Caption = 'Receiving Data'
     Visible = False
-    ExplicitHeight = 390
   end
   object panToolbar: TPanel
     Left = 0
@@ -46,7 +34,7 @@ object frmMain: TfrmMain
     Align = alTop
     BevelOuter = bvNone
     Caption = ' '
-    TabOrder = 1
+    TabOrder = 0
     object sbServer: TSpeedButton
       Left = 0
       Top = 0
@@ -76,11 +64,8 @@ object frmMain: TfrmMain
     Align = alBottom
     BevelOuter = bvNone
     Caption = ' '
-    TabOrder = 2
+    TabOrder = 1
     Visible = False
-    ExplicitLeft = 536
-    ExplicitTop = 256
-    ExplicitWidth = 185
     object SpeedButton1: TSpeedButton
       Left = 0
       Top = 6
@@ -105,11 +90,37 @@ object frmMain: TfrmMain
       Caption = '...'
     end
   end
+  object memLog: TMemo
+    Left = 0
+    Top = 33
+    Width = 688
+    Height = 349
+    TabStop = False
+    Align = alClient
+    Color = clBtnFace
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Courier New'
+    Font.Style = []
+    ParentFont = False
+    ReadOnly = True
+    ScrollBars = ssVertical
+    TabOrder = 2
+    Visible = False
+  end
   object timClearStatus: TTimer
     Enabled = False
     Interval = 3000
     OnTimer = timClearStatusTimer
     Left = 552
+    Top = 248
+  end
+  object timUpdateLog: TTimer
+    Enabled = False
+    Interval = 500
+    OnTimer = timUpdateLogTimer
+    Left = 464
     Top = 248
   end
 end
