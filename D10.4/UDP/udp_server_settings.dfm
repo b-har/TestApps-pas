@@ -12,7 +12,6 @@ object frmServerSettings: TfrmServerSettings
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  OldCreateOrder = True
   Position = poMainFormCenter
   OnShow = FormShow
   PixelsPerInch = 96

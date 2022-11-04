@@ -4,6 +4,7 @@ object frmUDPServer: TfrmUDPServer
   Width = 734
   Height = 407
   TabOrder = 0
+  PixelsPerInch = 96
   object indServer: TShape
     Left = 8
     Top = 42
@@ -25,10 +26,10 @@ object frmUDPServer: TfrmUDPServer
     Left = 256
     Top = 40
     Width = 81
-    Height = 21
+    Height = 23
     Color = clBtnFace
-    EditLabel.Width = 24
-    EditLabel.Height = 13
+    EditLabel.Width = 25
+    EditLabel.Height = 15
     EditLabel.Caption = 'Port:'
     LabelPosition = lpLeft
     ReadOnly = True
@@ -39,10 +40,10 @@ object frmUDPServer: TfrmUDPServer
     Left = 96
     Top = 40
     Width = 121
-    Height = 21
+    Height = 23
     Color = clBtnFace
-    EditLabel.Width = 49
-    EditLabel.Height = 13
+    EditLabel.Width = 48
+    EditLabel.Height = 15
     EditLabel.Caption = 'Server IP:'
     LabelPosition = lpLeft
     ReadOnly = True

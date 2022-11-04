@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, IdUDPServer, IdGlobal,
   IdSocketHandle, IdComponent, Vcl.ExtCtrls, IdUDPClient, IdBaseComponent,
-  IdUDPBase, Vcl.Buttons, Vcl.StdCtrls, System.UITypes;
+  IdUDPBase, Vcl.Buttons, Vcl.StdCtrls, System.UITypes, Vcl.Mask;
 
 type
   TfrmUDPClient = class(TFrame)

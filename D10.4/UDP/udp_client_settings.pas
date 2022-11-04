@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
-  udp_testapp_common, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons;
+  udp_testapp_common, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons, Vcl.Mask;
 
 type
   TClientSettingsRec = record
